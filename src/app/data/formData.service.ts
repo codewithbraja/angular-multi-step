@@ -207,6 +207,11 @@ export class FormDataService {
         };
         return enclosureInfo;
     }
+   setConfirmDetailInfo()
+    {
+         // Validate Work Step in Workflow
+         this.workflowService.validateStep(STEPS.confirmDetails);
+    }
     getPaymentInfo()
     {
         // Return the previousStudyInfo data
