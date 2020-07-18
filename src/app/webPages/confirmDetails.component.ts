@@ -20,14 +20,14 @@ export class ConfirmDetails implements OnInit  {
         console.log('confirm detail info feature loaded!');
     }
     goToPrevious(form: any) {
-       
+       this.formDataService.setConfirmDetailInfo();
              this.changeNavBarCompleteStyle();
              // Navigate to the personal page
              this.router.navigate(['/enclosure']);
      }
     goToNext() {
         //it will hide error message if false,will be true if next/previous button clicked
-            
+            this.formDataService.setConfirmDetailInfo();
             this.changeNavBarCompleteStyle();
             // Navigate to the work page
             this.router.navigate(['/payment']);
