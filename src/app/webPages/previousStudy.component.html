@@ -1,0 +1,34 @@
+<form #previousStudyForm="ngForm" class="editForm" novalidate>
+<div class="tab-pane fade in active">
+        <h4 class="head text-center">{{title}}</h4>
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>School</th>
+        <th>Affiliated Board</th>
+        <th>Standard</th>
+        <th>Grade/Marks Obtained in Final Exam</th>
+        <th>Total Marks</th>
+        <th>Reason for Leaving</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input class="form-control input-md" #year="ngModel"  id="year" name="year" type="text" placeholder="Year" [(ngModel)]="previousStudyInfo.year"></td>
+        <td><input class="form-control input-md" #school="ngModel"  id="school" name="school" type="text" placeholder="School" [(ngModel)]="previousStudyInfo.school"></td>
+        <td><input class="form-control input-md" #affiliatedBoard="ngModel"  id="affiliatedBoard" name="affiliatedBoard" type="text" placeholder="Affiliated Board" [(ngModel)]="previousStudyInfo.affiliatedBoard"></td>
+        <td><input class="form-control input-md" #standard="ngModel"  id="standard" name="standard" type="text" placeholder="Standard" [(ngModel)]="previousStudyInfo.standard"></td>
+        <td><input class="form-control input-md" #finalExamGrade="ngModel"  id="finalExamGrade" name="finalExamGrade" type="text" placeholder="FinalExamGrade" [(ngModel)]="previousStudyInfo.finalExamGrade"></td>
+        <td><input class="form-control input-md" #totalMarks="ngModel"  id="totalMarks" name="totalMarks" type="text" placeholder="TotalMarks" [(ngModel)]="previousStudyInfo.totalMarks"></td>
+        <td><input class="form-control input-md" #reasonforLeaving="ngModel"  id="reasonforLeaving" name="reasonforLeaving" type="text" placeholder="Reason for Leaving" [(ngModel)]="previousStudyInfo.reasonforLeaving"></td>
+        </tr>
+    </tbody>
+  </table>
+  <div class="form-group text-center space-20">
+    <button class="btn btn-outline-rounded btn-default" (click)="goToPrevious(previousStudyForm)"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span>Save & Previous</button>
+    <button class="btn btn-outline-rounded btn-info" [disabled]="!previousStudyForm.valid" (click)="goToNext(previousStudyForm)">Save & Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+</div>
+</div>
+</form>

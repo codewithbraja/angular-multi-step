@@ -1,0 +1,142 @@
+<form #confirmationForm="ngForm" class="editForm" novalidate>
+<div class="tab-pane fade in active">
+        <h4 class="head text-center">{{title}}</h4>
+<div class="panel panel-default">
+    <div class="panel-heading">Confirms Details:</div>
+
+    <div class="panel-body">
+
+        <table class="table table-bordered">
+   <thead>
+       <tr>
+           <td style="width:10px;"></td>
+           <td></td>
+       </tr>
+   </thead>        
+<tbody>
+<tr>
+<td>First Name</td>
+<td>{{formData.firstName}}</td>
+</tr>
+
+<tr>
+<td>MiddleName</td>
+<td>{{formData.middleName}}</td>
+</tr>
+<tr>
+<td>LastName</td>
+<td>{{formData.lastName }}</td>
+</tr>
+<tr>
+<td>Gender</td>   
+<td>{{formData.gender}}</td>
+</tr>
+<tr> 
+<td>DateOfBirth</td>       
+<td>{{formData.dateOfBirth}}</td>
+</tr>
+<tr>
+<td>Blood Group</td>   
+<td>{{formData.bloodgroup}}</td>
+</tr>
+<tr>
+<td>Religion</td>
+<td>{{formData.religion}}</td>
+</tr>
+<tr>
+<td>Caste</td>
+<td>{{formData.caste}}</td>
+</tr>
+<tr>
+<td>Nationality</td>
+<td>{{formData.nationality}}</td>
+</tr>
+<tr>
+<td>Aadhar No</td>   
+<td>{{formData.aadharNo}}</td>
+</tr>
+<tr>
+    <td>community</td>
+    <td>{{formData.community}}</td>
+</tr>
+<tr>
+    <td>Languages Known</td>
+    <td>{{formData.languagesKnown}}</td>
+</tr>
+<tr>
+    <td>Mother Tongue</td>
+    <td>{{formData.motherTongue}}</td>
+</tr>
+<tr><td>Residential Address</td>
+    <td>{{formData.residentialAddress}}</td>
+</tr>
+<tr><td>correspondenceAddress</td><td>{{formData.correspondenceAddress}}</td></tr>
+<tr><td>guardiansMobileNumber</td><td>{{formData.guardiansMobileNumber}}</td></tr>
+<tr><td>fathersMobileNumber</td><td>{{formData.fathersMobileNumber}}</td></tr>
+<tr><td>mothersMobileNumber</td><td>{{formData.mothersMobileNumber }}</td></tr>
+<tr><td>prefMobileNumbSchoolComm</td><td>{{formData.prefMobileNumbSchoolComm}}</td></tr>
+<tr><td>prefEmailSchoolComm</td><td>{{formData.prefEmailSchoolComm}}</td></tr>
+/*EmergencyContactDetail*/
+<tr><td>emergencyContactName</td><td>{{formData.emergencyContactName}}</td></tr>
+<tr><td>emergencyContactNumber</td><td>{{formData.emergencyContactNumber }}</td></tr>
+<tr><td>emergencyEmail</td><td>{{formData.emergencyEmail}}</td></tr>
+<tr><td>emergencyRelationship</td><td>{{formData.emergencyRelationship}}</td></tr>
+/*ParentInfo*/
+<tr><td>Father Name</td><td>{{formData.fatherName}}</td></tr>
+<tr><td>Father Age</td><td>{{formData.fatherAge}}</td></tr>
+<tr><td>Father Aadhar</td><td>{{formData.fatherAadhar}}</td></tr>
+<tr><td>Father Nationality</td><td>{{formData.fatherNationality}}</td></tr>
+<tr><td>Father Qualification</td><td>{{formData.fatherQualification}}</td></tr>
+<tr><td>Father Occupation</td><td>{{formData.fatherOccupation}}</td></tr>
+<tr><td>Father Designation</td><td>{{formData.fatherDesignation}}</td></tr>
+<tr><td>Father OfficeAddress</td><td>{{formData.fatherOfficeAddress}}</td></tr>
+<tr><td>Father Mobile</td><td>{{formData.fatherMobile}}</td></tr>
+<tr><td>Father Email</td><td>{{formData.fatherEmail}}</td></tr>
+<tr><td>Father AnnualIncome</td><td>{{formData.fatherAnnualIncome}}</td></tr>
+<tr><td>MotherName</td><td>{{formData.motherName}}</td></tr>
+<tr><td>MotherAge</td><td>{{formData.motherAge}}</td></tr>
+<tr><td>MotherAadhar</td><td>{{formData.motherAadhar}}</td></tr>
+<tr><td>MotherNationality</td><td>{{formData.motherNationality}}</td></tr>
+<tr><td>MotherQualification</td><td>{{formData.motherQualification}}</td></tr>
+<tr><td>MotherOccupation</td><td>{{formData.motherOccupation}}</td></tr>
+<tr><td>MotherDesignation</td><td>{{formData.motherDesignation}}</td></tr>
+<tr><td>MotherOfficeAddress</td><td>{{formData.motherOfficeAddress}}</td></tr>
+<tr><td>MotherMobile</td><td>{{formData.motherMobile}}</td></tr>
+<tr><td>MotherEmail</td><td>{{formData.motherEmail}}</td></tr>
+<tr><td>MotherAnnualIncome</td><td>{{formData.motherAnnualIncome}}</td></tr>
+<tr><td>siblingName</td><td>{{formData.siblingName}}</td></tr>
+<tr><td>siblingInstName</td><td>{{formData.siblingInstName}}</td></tr>
+<tr><td>siblingStandard</td><td>{{formData.siblingStandard}}</td></tr>
+<b>Previous study details</b>
+<tr><td>year</td><td>{{formData.year}}</td></tr>
+<tr><td>school</td><td>{{formData.school}}</td></tr>
+<tr><td>affiliatedBoard</td><td> {{formData.affiliatedBoard}}</td></tr>
+<tr><td>standard</td><td>{{formData.standard}}</td> </tr>
+<tr><td>finalExamGrade</td><td>{{formData.finalExamGrade}}</td></tr>
+<tr><td>totalMarks</td><td>{{formData.totalMarks}}</td> </tr>
+<tr><td>reasonforLeaving</td><td>{{formData.reasonforLeaving}}</td> </tr>
+<b>Attachments</b>
+<tr>
+    {{formData.birthCertificate}},
+    {{formData.transferCertificate}},
+    {{formData.threeYearProgressReport}},
+    {{formData.bloodGroupReport}},
+    {{formData.studentPassportPicture}},
+    {{formData.fatherPassportPicture}},
+    {{formData.motherPassportPicture}},
+    {{formData.GuardianPassportSizePic}},
+    {{formData.aadharScanCopyofStudent}},
+    {{formData.aadharScanCopyofFather}},
+    {{formData.aadharScanCopyofMother}},
+    {{formData.scstobcewcCertificate}} 
+</tr>
+ </tbody>
+ </table>
+</div>
+</div>
+<div class="form-group text-center">
+    <button class="btn btn-outline-rounded btn-default" (click)="goToPrevious()"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span>Save & Previous</button>
+    <button class="btn btn-success btn-outline-rounded btn-info"  (click)="goToNext()">Save & Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+</div>
+</div>
+</form>

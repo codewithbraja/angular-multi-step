@@ -1,0 +1,55 @@
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+   <!-- jQuery library -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+    <!-- Latest compiled JavaScript -->
+
+    <!-- <script>
+        $(document).ready(function(){
+            $('.wizard li').click(function () {
+                $('.wizard li.active').removeClass('active');
+                $(this).addClass('active');
+            $(this).prevAll().addClass("completed");
+            $(this).nextAll().removeClass("completed")
+        });
+        });
+  </script> -->
+  
+    <style>
+     
+    </style>
+
+
+    <div class="tabbable">
+        <ul class="nav nav-tabs wizard">
+            <li [ngClass]="{'active':ActiveComponentName.indexOf('student') > -1,'completed':CompletedComponentNames.indexOf('student') > -1}">
+                <a routerLink="/student" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" 
+                data-toggle="tab" aria-expanded="false"><span class="nmbr">1</span>Student Information</a>
+            </li>
+            <li [ngClass]="{'active':ActiveComponentName.indexOf('parent') > -1,'completed':CompletedComponentNames.indexOf('parent') > -1}">
+                <a routerLink="/parent" routerLinkActive="active" data-toggle="tab" aria-expanded="false">
+                    <span class="nmbr">2</span>Parent Information</a>
+            </li>
+            <li [ngClass]="{'active':ActiveComponentName.indexOf('previousStudy') > -1,'completed':CompletedComponentNames.indexOf('previousStudy') > -1}">
+                <a routerLink="/previousStudy" routerLinkActive="active" data-toggle="tab" aria-expanded="false">
+                <span class="nmbr">3</span>Previous Study</a>
+            </li>
+            <li [ngClass]="{'active':ActiveComponentName.indexOf('enclosure') > -1,'completed':CompletedComponentNames.indexOf('enclosure') > -1}">
+                <a routerLink="/enclosure" routerLinkActive="active" data-toggle="tab" aria-expanded="false">
+                <span class="nmbr">4</span>Enclosures</a>
+            </li>
+            <li [ngClass]="{'active':ActiveComponentName.indexOf('confirmDetails') > -1,'completed':CompletedComponentNames.indexOf('confirmDetails') > -1}">
+                <a routerLink="/confirmDetails" routerLinkActive="active" data-toggle="tab" aria-expanded="true">
+                <span class="nmbr">5</span>Confirm Details</a>
+            </li>
+            <li [ngClass]="{'active':ActiveComponentName.indexOf('payment') > -1,'completed':CompletedComponentNames.indexOf('payment') > -1}">
+                <a routerLink="/payment" routerLinkActive="active" data-toggle="tab" aria-expanded="true">
+                <span class="nmbr">6</span>Payments</a>
+            </li>
+        </ul>
+
+<!-- Close the Splash screen -->
+<!-- <script src="content/js/loading-bars.js"></script> -->

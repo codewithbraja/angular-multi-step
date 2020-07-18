@@ -1,0 +1,285 @@
+<form #studentForm="ngForm" class="editForm" novalidate>
+    <div class="tab-pane fade in active">
+    <h4 class="head text-center">{{title}}</h4>
+    <div class="panel panel-default">
+        <div class="panel-heading">Basic Details:</div>
+        <div class="panel-body">
+                <!-- <div class='col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10'> -->
+                    <div class="row">
+                        <div class='col-md-4'>
+                            <div class="form-group">
+                                <label class="control-label" for="firstName">First Name</label>  
+                                <input class="form-control input-md" #firstName="ngModel" required pattern="(\s*\S\s*)+" id="firstName" name="firstName" type="text" placeholder="First Name" [(ngModel)]="studentInfo.firstName">   
+                                <div *ngIf="!prevNextclickCounterflag || (firstName.dirty || firstName.touched) ">
+                                <div class="alert alert-danger" [hidden]="firstName.valid">First Name is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- {{'required='+firstName.errors?.required}}<br/>
+                        {{'pattern='+firstName.errors?.pattern}}<br/>
+                        {{'reqdpattern='+firstName.errors?.pattern?.requiredPattern}}<br/>
+                        {{firstName.errors | json}} -->
+                        <div class='col-md-4'>
+                            <div class="form-group">
+                                <label class="control-label" for="middleName">Middle Name</label>  
+                                <input class="form-control input-md" #middleName="ngModel"  id="middleName" name="middleName" type="text" placeholder="Middle Name" [(ngModel)]="studentInfo.middleName">
+                                
+                            </div>
+                        </div>
+                        <div class='col-md-4'>
+                            <div class="form-group">
+                                <label class="control-label" for="lastName">Last Name</label>  
+                                <input class="form-control input-md" #lastName="ngModel" required pattern="(\s*\S\s*)+" id="lastName" name="lastName" type="text" placeholder="Last Name" [(ngModel)]="studentInfo.lastName">
+                                <div *ngIf="!prevNextclickCounterflag || (lastName.dirty || lastName.touched) ">
+                                <div class="alert alert-danger" [hidden]="lastName.valid">Last Name is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+            <!-- <div class='col-xs-offset-1'> -->
+            <div class="row">
+                    <div class='col-md-4'>
+                    <div class="form-group col">
+                        <label class="control-label" for="gender">Select Gender</label>
+                        <div class='row'>
+                      <div class='col-md-4'>
+                            <label class="radio-inline">
+                                <input type="radio" #gender="ngModel" required name="gender" [(ngModel)]="studentInfo.gender" value="Male">
+                                Male
+                            </label>
+                        
+                        
+                            <label class="radio-inline">
+                                <input type="radio" #gender="ngModel" required name="gender" [(ngModel)]="studentInfo.gender" value="Female">
+                                Female
+                            </label>
+                        
+                        
+                            <label class="radio-inline">
+                                <input type="radio" #gender="ngModel" required name="gender" [(ngModel)]="studentInfo.gender" value="Other">
+                                Other
+                            </label>
+                        </div> 
+                    </div>
+                    <div *ngIf="!prevNextclickCounterflag || (gender.dirty || gender.touched) ">
+                    <div class="alert alert-danger" [hidden]="gender.valid">Gender is required</div>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <div class='col-md-4'>
+                        <label class="control-label" for="dateOfBirth">Date of Birth:</label>
+                        <input type="date" class="form-control" #dateOfBirth="ngModel" name="dateOfBirth" [(ngModel)]="studentInfo.dateOfBirth"  required/>
+                        <div *ngIf="!prevNextclickCounterflag || (dateOfBirth.dirty || dateOfBirth.touched) ">
+                            <div class="alert alert-danger" [hidden]="dateOfBirth.valid">DOB is required</div>
+                        </div>
+                        
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <div class='col-md-4'>
+                        <label class="control-label" for="bloodgroup">Select Blood Group</label>
+                        <select class="form-control" [(ngModel)]="studentInfo.bloodgroup" #bloodgroup="ngModel" name="bloodgroup" required>  
+                            <option >A+ </option>  
+                            <option > B+</option>  
+                            <option >O </option>  
+                            <option >A- </option>  
+                            <option > B-</option>  
+                            <option >AB-</option> 
+                        </select> 
+                        <div *ngIf="!prevNextclickCounterflag || (bloodgroup.dirty || bloodgroup.touched) ">
+                            <div class="alert alert-danger" [hidden]="bloodgroup.valid">Blood Group is required</div>
+                        </div>
+                        
+                    </div> 
+                    </div>
+            </div>
+       
+
+            <div class="form-group">
+            <label class="control-label" for="religion">Select Religion</label>
+            <select class="form-control" [(ngModel)]="studentInfo.religion" #religion="ngModel" name="religion" required>  
+                <option >Hindu </option>  
+                <option > Muslman</option>  
+                <option >Christian </option>  
+                <option >BAudha</option>  
+                <option >Jaina</option>  
+                <option >Other</option> 
+            </select> 
+            <div *ngIf="!prevNextclickCounterflag || (religion.dirty || religion.touched) ">
+            <div class="alert alert-danger" [hidden]="religion.valid">Religion is required</div>
+            </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="caste">caste</label>  
+                <input class="form-control input-md" #caste="ngModel" required id="caste" name="caste" type="text" placeholder="caste" [(ngModel)]="studentInfo.caste">
+                <div *ngIf="!prevNextclickCounterflag || (caste.dirty || caste.touched) ">
+                    <div class="alert alert-danger" [hidden]="caste.valid">caste is required</div>
+                </div>
+               
+            </div>
+    
+            <div class="form-group">
+                <label class="control-label" for="nationality">Select Nationality</label>
+                <select class="form-control" [(ngModel)]="studentInfo.nationality" #nationality="ngModel" name="nationality" required>  
+                    <option selected="selected">India</option>  
+                    <option >Japan</option>  
+                    <option >Pakistan</option>  
+                    <option >Nepal</option>  
+                    <option > Bhutan</option>  
+                    <option >Saudi Arab</option> 
+                    <option >America</option> 
+                </select> 
+                <div *ngIf="!prevNextclickCounterflag || (nationality.dirty || nationality.touched) ">
+                <div class="alert alert-danger" [hidden]="nationality.valid">nationality is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                    <label class="control-label" for="aadharNo">Aadhar No</label>  
+                    <input class="form-control input-md" #aadharNo="ngModel" required minlength="12" maxlength="12"  id="aadharNo" name="aadharNo" type="text" placeholder="aadharNo" [(ngModel)]="studentInfo.aadharNo"
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                 <div *ngIf="!prevNextclickCounterflag || (aadharNo.dirty || aadharNo.touched) ">
+                    <div class="alert alert-danger" [hidden]="aadharNo.valid">aadharNo is required with length of 12</div>
+                </div>
+            </div>
+    
+            <!-- <div class='col-xs-offset-1'> -->
+                <div class="form-group">
+                        <label class="control-label" for="community">Select community</label>
+                        <div class='row'>
+                        <div class="col-xs-1">
+                            <label class="radio-inline">
+                                <input type="radio" #community="ngModel" required name="community" [(ngModel)]="studentInfo.community" value="SC">
+                                SC
+                            </label>
+                        </div>
+                        <div class="col-xs-1">
+                            <label class="radio-inline">
+                                <input type="radio" #community="ngModel" required name="community" [(ngModel)]="studentInfo.community" value="ST">
+                                ST
+                            </label>
+                        </div>
+                        <div class="col-xs-1">
+                            <label class="radio-inline">
+                                <input type="radio" #community="ngModel" required name="community" [(ngModel)]="studentInfo.community" value="OBC">
+                                OBC
+                            </label>
+                        </div>
+                        <div class="col-xs-1">
+                            <label class="radio-inline">
+                                <input type="radio" #community="ngModel" required name="community" [(ngModel)]="studentInfo.community" value="EWS">
+                                EWS
+                            </label>
+                        </div>
+                        <div class="col-xs-1">
+                            <label class="radio-inline">
+                                <input type="radio" #community="ngModel" required name="community" [(ngModel)]="studentInfo.community" value="GENERAL">
+                                General
+                            </label>
+                        </div>
+                    </div>
+                    <div *ngIf="!prevNextclickCounterflag || (community.dirty || community.touched) ">
+                    <div class="alert alert-danger" [hidden]="community.valid">Gender is required</div>
+                    </div>
+                </div>
+            <!-- </div> -->
+    <!-- comm -->
+    <div class="form-group">
+        <label class="control-label" for="languagesKnown">Languages Known:</label>  
+        <input class="form-control input-md" #languagesKnown="ngModel" id="languagesKnown" name="languagesKnown" type="text" placeholder="languages Known" [(ngModel)]="studentInfo.languagesKnown">   
+       
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="motherTongue">Mother Tongue</label>  
+        <input class="form-control input-md" #motherTongue="ngModel" id="motherTongue" name="motherTongue" type="text" placeholder="mother Tongue" [(ngModel)]="studentInfo.motherTongue">   
+        
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="residentialAddress">Residential Address</label>  
+        <input class="form-control input-md" #residentialAddress="ngModel" required pattern="(\s*\S\s*)+" id="residentialAddress" name="residentialAddress" type="text" placeholder="Residential Address" [(ngModel)]="studentInfo.residentialAddress">   
+        <div *ngIf="!prevNextclickCounterflag || (residentialAddress.dirty || residentialAddress.touched) ">
+            <div class="alert alert-danger" [hidden]="residentialAddress.valid">Residential Address is required</div>
+        </div>
+        
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="correspondenceAddress">correspondence Address</label>  
+        <input class="form-control input-md" #correspondenceAddress="ngModel" required pattern="(\s*\S\s*)+" id="correspondenceAddress" name="correspondenceAddress" type="text" placeholder="Correspondence Address" [(ngModel)]="studentInfo.correspondenceAddress">   
+        <div *ngIf="!prevNextclickCounterflag || (correspondenceAddress.dirty || correspondenceAddress.touched) ">
+        <div class="alert alert-danger" [hidden]="correspondenceAddress.valid">Correspondence Address is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="guardiansMobileNumber">Guardian's Mobile Number</label>  
+        <input class="form-control input-md" #guardiansMobileNumber="ngModel" required  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" id="guardiansMobileNumber" name="guardiansMobileNumber" type="text" placeholder="Guardians Mobile Number" [(ngModel)]="studentInfo.guardiansMobileNumber">   
+        <div *ngIf="!prevNextclickCounterflag || (guardiansMobileNumber.dirty || guardiansMobileNumber.touched) ">
+            <div class="alert alert-danger" [hidden]="guardiansMobileNumber.valid">Guardians Mobile Numbere is required</div>
+        </div>
+       
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="fathersMobileNumber">Father's Mobile Number</label>  
+        <input class="form-control input-md" #fathersMobileNumber="ngModel"  id="fathersMobileNumber" name="fathersMobileNumber" type="text" placeholder="Father's Mobile Number" [(ngModel)]="studentInfo.fathersMobileNumber">   
+        
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="mothersMobileNumber">Mother's Mobile Number</label>  
+        <input class="form-control input-md" #mothersMobileNumber="ngModel"  id="mothersMobileNumber" name="mothersMobileNumber" type="text" placeholder="Mother's Mobile Number" [(ngModel)]="studentInfo.mothersMobileNumber">   
+        
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="prefMobileNumbSchoolComm">Prefered Mobile Number for School Communication :</label>  
+        <input class="form-control input-md" #prefMobileNumbSchoolComm="ngModel" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" id="prefMobileNumbSchoolComm" name="prefMobileNumbSchoolComm" type="text" placeholder="Pref Mobile NumbS chool Comm" [(ngModel)]="studentInfo.prefMobileNumbSchoolComm">   
+        <div *ngIf="!prevNextclickCounterflag || (prefMobileNumbSchoolComm.dirty || prefMobileNumbSchoolComm.touched) ">
+            <div class="alert alert-danger" [hidden]="prefMobileNumbSchoolComm.valid">prefMobileNumbSchoolComm is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="prefEmailSchoolComm">Pref Email for School Communication :</label>  
+        <input class="form-control input-md" #prefEmailSchoolComm="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"  id="prefEmailSchoolComm" name="prefEmailSchoolComm" type="text" placeholder="Pref Email School Comm" [(ngModel)]="studentInfo.prefEmailSchoolComm">   
+        <div *ngIf="!prevNextclickCounterflag || (prefEmailSchoolComm.dirty || prefEmailSchoolComm.touched) ">
+            <div class="alert alert-danger" [hidden]="prefEmailSchoolComm.valid">Pref Email for School Comm is required and should valid</div>
+        </div>
+       
+    </div>
+        </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Emergency Contact Person Details:</div>
+    <div class="panel-body">
+        
+        <div class="form-group">
+            <label class="control-label" for="emergencyContactName">Contact Name</label>  
+            <input class="form-control input-md" #emergencyContactName="ngModel" required id="emergencyContactName" name="emergencyContactName" type="text" placeholder="Emergency Contact Name" [(ngModel)]="studentInfo.emergencyContactName">   
+            <div *ngIf="!prevNextclickCounterflag || (emergencyContactName.dirty || emergencyContactName.touched) ">
+            <div class="alert alert-danger" [hidden]="emergencyContactName.valid">Emergency Contact Name is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="emergencyContactNumber">Contact Number :</label>  
+            <input class="form-control input-md" #emergencyContactNumber="ngModel" required id="emergencyContactNumber" name="emergencyContactNumber" type="text" placeholder="Emergency Contact Number" [(ngModel)]="studentInfo.emergencyContactNumber">   
+            <div *ngIf="!prevNextclickCounterflag || (emergencyContactNumber.dirty || emergencyContactNumber.touched) ">
+            <div class="alert alert-danger" [hidden]="emergencyContactNumber.valid">Emergency Contact Number is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="emergencyEmail">Email :</label>  
+            <input class="form-control input-md" #emergencyEmail="ngModel"  pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"  id="emergencyEmail" name="emergencyEmail" type="text" placeholder="emergencyEmail" [(ngModel)]="studentInfo.emergencyEmail">   
+            <div class="alert alert-danger" [hidden]="emergencyEmail.valid">Emergency Email should be valid valid</div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="emergencyRelationship">Relationship</label>  
+            <input class="form-control input-md" #emergencyRelationship="ngModel" required id="emergencyRelationship" name="emergencyRelationship" type="text" placeholder="Emergency Relationship" [(ngModel)]="studentInfo.emergencyRelationship">   
+            <div *ngIf="!prevNextclickCounterflag || (emergencyRelationship.dirty || emergencyRelationship.touched) ">
+            <div class="alert alert-danger" [hidden]="emergencyRelationship.valid">Emergency Relationship is required</div>
+            </div>
+        </div>
+
+    </div>
+  </div>
+  <div class="form-group text-center">
+    <button class="btn btn-success btn-outline-rounded btn-info"  (click)="goToNext(studentForm)">Save & Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+</div>
+</div>
+</form>

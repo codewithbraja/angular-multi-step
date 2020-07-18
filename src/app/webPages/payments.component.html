@@ -1,0 +1,39 @@
+<form #paymentForm="ngForm" class="editForm" novalidate>
+<div class="tab-pane fade in active">
+        <h4 class="head text-center">{{title}}</h4>
+<div class="panel panel-default">
+    <div class="panel-heading">Payment Details:</div>
+    <div class="panel-body">
+<div class="form-group col-md-6">
+    <label class="control-label" for="paymentMedium">Payment Medium</label> 
+    <select class="form-control" required [(ngModel)]="paymentInfo.paymentType" #paymentMedium="ngModel" name="paymentMedium" >  
+        <option selected="selected">Cash</option>  
+        <option >Cart</option>  
+        <option >PhonePe</option>  
+        
+    </select>  
+    <div *ngIf="!prevNextclickCounterflag || (paymentMedium.dirty || paymentMedium.touched) ">
+    <div class="alert alert-danger" [hidden]="paymentMedium.valid">Mother Annual Income is required</div>
+    </div>
+</div>
+<div class="form-group col-md-6">
+    <label class="control-label" for="reference">Reference No(if any)</label>  
+    <input class="form-control input-md" #reference="ngModel" required id="reference" name="reference" type="text" placeholder="motherQualification" [(ngModel)]="paymentInfo.motherQualification">
+    <div *ngIf="!prevNextclickCounterflag || (reference.dirty || reference.touched)">
+    <div class="alert alert-danger" [hidden]="reference.valid">Reference is required</div>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label" for="amount">Amount</label>  
+    <input class="form-control input-md" #amount="ngModel" required id="amount" name="amount" type="text" placeholder="amount" [(ngModel)]="paymentInfo.amount">
+    <div *ngIf="!prevNextclickCounterflag || (amount.dirty || amount.touched)">
+    <div class="alert alert-danger" [hidden]="amount.valid">Amount is required</div>
+    </div>
+</div>
+    </div>
+</div>
+<div class="form-group text-center">
+    <button class="btn btn-success btn-outline-rounded btn-info"  onclick="alert('Kudos !!!You are succefully submitted your form.')">Submit </button>
+</div>
+</div>
+</form>

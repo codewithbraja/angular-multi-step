@@ -1,0 +1,62 @@
+<form #enclosureForm="ngForm" class="editForm" novalidate>
+    <div class="tab-pane fade in active">
+            <h4 class="head text-center">{{title}}</h4>
+    
+<table class="table table-bordered">
+<tbody>
+<tr>
+<td>i.	Birth Certificate: </td>
+<td><input type="file" name="birthCertificate" [(ngModel)]="enclosureInfo.birthCertificate" /></td>
+</tr>
+<tr>
+<td>ii.	Transfer Certificate (if applicable) </td>
+<td><input type="file" name="transferCertificate" [(ngModel)]="enclosureInfo.transferCertificate"  /></td>
+</tr>
+<tr>
+<td>iii.	Last 3 years Progress Report  </td>
+<td><input type="file" name="threeYearProgressReport"  [(ngModel)]="enclosureInfo.threeYearProgressReport"  /></td>
+</tr>
+<tr>
+<td>iv.	Blood Group Report  </td>
+<td><input type="file" name="bloodGroupReport"  [(ngModel)]="enclosureInfo.bloodGroupReport" /></td>
+</tr>
+<tr>
+<td>v.	Students Passport Size Photo  </td>
+<td><input type="file" name="studentPassportPicture" [(ngModel)]="enclosureInfo.studentPassportPicture" /></td>
+</tr>
+<tr>
+<td>vi.	Father’s Passport Size   </td>
+<td><input type="file" name="fatherPassportPicture" [(ngModel)]="enclosureInfo.fatherPassportPicture"  /></td>
+</tr>
+<tr>
+<td>vii.	Mother’s Passport Size Photo   </td>
+<td><input type="file" name="motherPassportPicture" [(ngModel)]="enclosureInfo.motherPassportPicture"  /></td>
+</tr>
+<tr>
+<td>viii.	Guardian’s Passport Size Photo   </td>
+<td><input type="file" name="GuardianPassportSizePic" [(ngModel)]="enclosureInfo.GuardianPassportSizePic" /></td>
+</tr>
+<tr>
+<td>ix.	Aadhar Card Scan Copy-Student’s   </td>
+<td><input type="file" name="aadharScanCopyofStudent" [(ngModel)]="enclosureInfo.aadharScanCopyofStudent" /></td>
+</tr>
+<tr>
+<td>x.	Aadhar Card Scan Copy-Father’s    </td>
+<td><input type="file" name="aadharScanCopyofFather" [(ngModel)]="enclosureInfo.aadharScanCopyofFather"  /></td>
+</tr>
+<tr>
+<td>xi.	Aadhar Card Scan Copy-Mother’s    </td>
+<td><input type="file" name="aadharScanCopyofMother"  [(ngModel)]="enclosureInfo.aadharScanCopyofMother"  /></td>
+</tr>
+<tr>
+<td>xii.	SC/ST/OBC/EWS Certificates     </td>
+<td><input type="file" name="scstobcewcCertificate"  [(ngModel)]="enclosureInfo.scstobcewcCertificate" /></td>
+</tr>
+        </tbody>
+      </table>
+      <div class="form-group text-center space-20">
+        <button class="btn btn-outline-rounded btn-default" (click)="goToPrevious(enclosureForm)"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span>Save & Previous</button>
+        <button class="btn btn-outline-rounded btn-info" [disabled]="!enclosureForm.valid" (click)="goToNext(enclosureForm)">Save & Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+    </div>
+    </div>
+    </form>

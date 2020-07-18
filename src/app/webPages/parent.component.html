@@ -1,0 +1,211 @@
+<form #parentForm="ngForm" class="editForm" novalidate>
+    <div class="tab-pane fade in active">
+        <h4 class="head text-center">{{title}}</h4>
+<div class="panel panel-default">
+    <div class="panel-heading">Father’s Details:</div>
+    <div class="panel-body">
+    <div class="form-group">
+        <label class="control-label" for="fatherName">Father Name</label>  
+        <input class="form-control input-md" #fatherName="ngModel" required id="fatherName" pattern="(\s*\S\s*)+" name="fatherName" type="text" placeholder="Father Name" [(ngModel)]="parentInfo.fatherName">
+        <div *ngIf="!prevNextclickCounterflag || (fatherName.dirty || fatherName.touched) ">
+        <div class="alert alert-danger" [hidden]="fatherName.valid">father Name is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="fatherAge">Father Age</label>  
+        <input class="form-control input-md" #fatherAge="ngModel" pattern="^(0?[0-9]|[0-9][0-9][0-9])$" id="fatherAge" name="fatherAge" type="number" placeholder="Father Age" [(ngModel)]="parentInfo.fatherAge">
+        <div *ngIf="!prevNextclickCounterflag || (fatherAge.dirty || fatherAge.touched) ">
+        <div class="alert alert-danger" [hidden]="fatherAge.valid">Father Age between 21-110</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="fatherAadhar">Father Aadhar</label>  
+        <input class="form-control input-md" #fatherAadhar="ngModel" id="fatherAadhar" name="Father Aadhar" type="text" placeholder="Father Aadhar" [(ngModel)]="parentInfo.fatherAadhar"
+            required minlength="12" maxlength="12"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                <div *ngIf="!prevNextclickCounterflag || (fatherAadhar.dirty || fatherAadhar.touched) ">
+                <div class="alert alert-danger" [hidden]="fatherAadhar.valid">Father Aadhar is required.Length should be 12</div>
+                </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="fatherNationality">Father Nationality</label> 
+        <select class="form-control" required [(ngModel)]="parentInfo.fatherNationality" #fatherNationality="ngModel" name="fatherNationality" >  
+            <option selected="selected">India</option>  
+            <option >Japan</option>  
+            <option >Pakistan</option>  
+            <option >Nepal</option>  
+            <option > Bhutan</option>  
+            <option >Saudi Arab</option> 
+            <option >America</option> 
+        </select>  
+        <div *ngIf="!prevNextclickCounterflag || (fatherNationality.dirty || fatherNationality.touched) ">
+        <div class="alert alert-danger" [hidden]="fatherNationality.valid">Father Nationality is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="fatherQualification">Father Educational Qualification</label>  
+        <input class="form-control input-md" #fatherQualification="ngModel" required id="fatherQualification" name="fatherQualification" type="text" placeholder="Father Qualification" [(ngModel)]="parentInfo.fatherQualification">
+        <div *ngIf="!prevNextclickCounterflag || (fatherQualification.dirty || fatherQualification.touched) ">
+        <div class="alert alert-danger" [hidden]="fatherQualification.valid">Father Qualification is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="fatherOccupation">Father Occupation</label>  
+        <input class="form-control input-md" #fatherOccupation="ngModel" required id="fatherOccupation" name="fatherOccupation" type="text" placeholder="Father Occupation" [(ngModel)]="parentInfo.fatherOccupation">
+        <div *ngIf="!prevNextclickCounterflag || (fatherOccupation.dirty || fatherOccupation.touched) ">
+        <div class="alert alert-danger" [hidden]="fatherOccupation.valid">Father Occupation is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="fatherDesignation">Father Designation</label>  
+        <input class="form-control input-md" #fatherDesignation="ngModel" id="fatherDesignation" name="fatherDesignation" type="text" placeholder="Father Designation" [(ngModel)]="parentInfo.fatherDesignation">
+        
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="fatherOfficeAddress">Father Office Address</label>  
+        <input class="form-control input-md" #fatherOfficeAddress="ngModel" id="fatherOfficeAddress" name="fatherOfficeAddress" type="text" placeholder="fatherOfficeAddress" [(ngModel)]="parentInfo.fatherOfficeAddress">
+        
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="fatherMobile">Father Mobile</label>  
+        <input class="form-control input-md" #fatherMobile="ngModel" required id="fatherMobile" name="fatherMobile" type="text" placeholder="Father Mobile" [(ngModel)]="parentInfo.fatherMobile"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                <div *ngIf="!prevNextclickCounterflag || (fatherMobile.dirty || fatherMobile.touched) ">
+                    <div class="alert alert-danger" [hidden]="fatherMobile.valid">Father Mobile is required</div>
+                </div>
+        
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="fatherEmail">Father Email :</label>  
+        <input class="form-control input-md" #fatherEmail="ngModel"  pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"  id="fatherEmail" name="fatherEmail" type="text" placeholder="Email" [(ngModel)]="parentInfo.fatherEmail">   
+        <div *ngIf="!prevNextclickCounterflag || (fatherEmail.dirty || fatherEmail.touched) ">
+        <div class="alert alert-danger" [hidden]="fatherEmail.valid">Father Email is should valid email.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="fatherAnnualIncome">Father Annual Income</label> 
+        <select class="form-control" required [(ngModel)]="parentInfo.fatherAnnualIncome" #fatherAnnualIncome="ngModel" name="fatherAnnualIncome" >  
+            <option selected="selected">nil</option>  
+            <option >1-10000</option>  
+            <option >10001-50000</option>  
+            
+        </select>  
+        <div *ngIf="!prevNextclickCounterflag || (fatherAnnualIncome.dirty || fatherAnnualIncome.touched) ">
+        <div class="alert alert-danger" [hidden]="fatherAnnualIncome.valid">Father Annual Income is required</div>
+        </div>
+    </div>
+
+
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Mother’s Details:</div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label class="control-label" for="motherName">Mother Name</label>  
+            <input class="form-control input-md" #motherName="ngModel" required id="motherName" name="motherName" type="text" placeholder="motherName" [(ngModel)]="parentInfo.motherName">
+            <div *ngIf="!prevNextclickCounterflag || (motherName.dirty || motherName.touched) ">
+            <div class="alert alert-danger" [hidden]="motherName.valid">Mother Name is required</div>
+            </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="motherAge">MotherAge</label>  
+        <input class="form-control input-md" #motherAge="ngModel"  id="motherAge" pattern="^(0?[0-9]|[0-9][0-9][0-9])$" name="motherAge" type="text" placeholder="Mother Age" [(ngModel)]="parentInfo.motherAge">
+        <div *ngIf="!prevNextclickCounterflag || (motherAge.dirty || motherAge.touched) ">
+        <div class="alert alert-danger" [hidden]="motherAge.valid">Mother Age between 21-110</div>
+        </div>
+</div>
+<div class="form-group">
+    <label class="control-label" for="motherAadhar">Mother Aadhar</label>  
+    <input class="form-control input-md" #motherAadhar="ngModel"  id="motherAadhar" name="motherAadhar" type="text" placeholder="motherAadhar" [(ngModel)]="parentInfo.motherAadhar"
+            required minlength="12" maxlength="12"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+            <div *ngIf="!prevNextclickCounterflag || (motherAadhar.dirty || motherAadhar.touched) ">
+            <div class="alert alert-danger" [hidden]="motherAadhar.valid">Mother Aadhar is required and must me 12 digit</div>
+            </div>
+</div>
+<div class="form-group">
+    <label class="control-label" for="motherNationality">Mother Nationality</label>  
+    <input class="form-control input-md" #motherNationality="ngModel" required id="motherNationality" name="motherNationality" type="text" placeholder="motherNationality" [(ngModel)]="parentInfo.motherNationality">
+    <div *ngIf="!prevNextclickCounterflag || (motherNationality.dirty || motherNationality.touched)">
+    <div class="alert alert-danger" [hidden]="motherNationality.valid">Mother Nationality is required</div>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label" for="motherQualification">Mother Qualification</label>  
+    <input class="form-control input-md" #motherQualification="ngModel" required id="motherQualification" name="motherQualification" type="text" placeholder="motherQualification" [(ngModel)]="parentInfo.motherQualification">
+    <div *ngIf="!prevNextclickCounterflag || (motherQualification.dirty || motherQualification.touched)">
+    <div class="alert alert-danger" [hidden]="motherQualification.valid">Mother Qualification is required</div>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label" for="motherOccupation">Mother Occupation</label>  
+    <input class="form-control input-md" #motherOccupation="ngModel" required id="motherOccupation" name="motherOccupation" type="text" placeholder="Mother Occupation" [(ngModel)]="parentInfo.motherOccupation">
+    <div *ngIf="!prevNextclickCounterflag || (motherOccupation.dirty || motherOccupation.touched)">
+    <div class="alert alert-danger" [hidden]="motherOccupation.valid">Mother Occupation is required</div>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label" for="motherDesignation">Mother Designation</label>  
+    <input class="form-control input-md" #motherDesignation="ngModel"  id="motherDesignation" name="motherDesignation" type="text" placeholder="Mother Designation" [(ngModel)]="parentInfo.motherDesignation">
+    
+</div>
+<div class="form-group">
+    <label class="control-label" for="motherOfficeAddress">Mother Office Address</label>  
+    <input class="form-control input-md" #motherOfficeAddress="ngModel"  id="motherOfficeAddress" name="motherOfficeAddress" type="text" placeholder="motherOfficeAddress" [(ngModel)]="parentInfo.motherOfficeAddress">
+    
+</div>
+<div class="form-group">
+    <label class="control-label" for="motherMobile">Mother Mobile</label>  
+    <input class="form-control input-md" #motherMobile="ngModel" required id="motherMobile" name="motherMobile" type="text" placeholder="motherMobile" [(ngModel)]="parentInfo.motherMobile"
+    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+    <div *ngIf="!prevNextclickCounterflag || (motherMobile.dirty || motherMobile.touched) ">
+        <div class="alert alert-danger" [hidden]="motherMobile.valid">Mother Mobile is required</div>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label" for="motherEmail">Mother Email</label>  
+    <input class="form-control input-md" #motherEmail="ngModel"  pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"  id="motherEmail" name="motherEmail" type="text" placeholder="Mother Email" [(ngModel)]="parentInfo.motherEmail">
+    <div *ngIf="!prevNextclickCounterflag || (motherEmail.dirty || motherEmail.touched) ">
+    <div class="alert alert-danger" [hidden]="motherEmail.valid">Mother Email is in valid format</div>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label" for="motherAnnualIncome">Mother Annual Income</label> 
+    <select class="form-control" required [(ngModel)]="parentInfo.motherAnnualIncome" #motherAnnualIncome="ngModel" name="motherAnnualIncome" >  
+        <option selected="selected">nil</option>  
+        <option >1-10000</option>  
+        <option >10001-50000</option>  
+        
+    </select>  
+    <div *ngIf="!prevNextclickCounterflag || (motherAnnualIncome.dirty || motherAnnualIncome.touched) ">
+    <div class="alert alert-danger" [hidden]="motherAnnualIncome.valid">Mother Annual Income is required</div>
+    </div>
+</div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Siblings Details:</div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label class="control-label" for="siblingName">Sibling Name</label>  
+            <input class="form-control input-md" #siblingName="ngModel"  id="siblingName" name="siblingName" type="text" placeholder="siblingName" [(ngModel)]="parentInfo.siblingName">
+            
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="siblingInstName">Sibling Institute Name</label>  
+        <input class="form-control input-md" #siblingInstName="ngModel"  id="siblingInstName" name="siblingInstName" type="text" placeholder="siblingInstName" [(ngModel)]="parentInfo.siblingInstName">
+        
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="siblingStandard">Sibling Standard Name</label>  
+        <input class="form-control input-md" #siblingStandard="ngModel"  id="siblingStandard" name="siblingStandard" type="text" placeholder="Sibling Standard" [(ngModel)]="parentInfo.siblingStandard">
+        
+    </div>
+</div>
+</div>
+<div class="form-group text-center space-20">
+    <button class="btn btn-outline-rounded btn-default" (click)="goToPrevious(parentForm)"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span>Save & Previous</button>
+    <button class="btn btn-outline-rounded btn-info"  (click)="goToNext(parentForm)">Save & Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+</div>
+</div>
+</form>
